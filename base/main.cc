@@ -72,12 +72,12 @@ int main(int argc, char** argv)
 	
 	
 	// Ejemplo de creación de matrix vacía
-	MultMatrix mm;
+/*	MultMatrix mm;
 	Matrix<float> C(m1.rows(), m1.cols());
 	
 	//Ejemplo de llamada al método del algoritmo ijk
 	mm.DOijk(m1, m1, C);
-	
+*/	
 	
 	return(EXIT_SUCCESS);
 }
