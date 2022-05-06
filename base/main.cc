@@ -54,7 +54,7 @@ int main(int argc, char** argv)
 	}
 
 	Matrix<float> m1(fileMatrixA, " ");
-
+	Matrix<float> m2(fileMatrixA, " ");
 	timer1.start();
 	try{
 		m1.load();
@@ -64,7 +64,12 @@ int main(int argc, char** argv)
 	}
 	timer1.stop();
 	std::cout << "Time to load matrix in memory: " << timer1.elapsed() << " ns\n";
-
+	try{
+		m2.load();
+	} catch(std::exception& e){
+		std::cerr << e.what() <<std::endl;
+		exit(EXIT_FAILURE);
+	}
 /*	for(size_t i=0; i< m1.rows(); i++){
 		for(size_t j=0; j< m1.cols(); j++){
 			std::cout << m1(i,j) << "\t";
@@ -74,7 +79,7 @@ int main(int argc, char** argv)
 */
 
 	// Ejemplo de creación de matrix vacía
-	MultMatrix mm;
+/*	MultMatrix mm;
 	timer2.start();
 	Matrix<float> C(m1.rows(), m1.cols());
 
@@ -83,7 +88,7 @@ int main(int argc, char** argv)
 	timer2.stop();
 
         std::cout << "Timer DOijk: " << timer2.elapsed() << " ns\n";
-	std::cout << "DOIJK" << "\t";
+	std::cout << "DOIJK" << std::endl;
 	for(size_t i=0; i<C.rows(); i++){
 		for(size_t j=0;j<C.cols();j++){
 			std::cout << C(i,j) << "\t";
@@ -93,12 +98,12 @@ int main(int argc, char** argv)
 	std::cout << std::endl;
 	std::cout << "DOKIJ";
 	std::cout << std::endl;
+*/
 
-	MultMatrix mm2;
+	MultMatrix mm;
 	timer3.start();
 	Matrix<float> C_prima(m1.rows(), m1.cols()); 
-
-	mm2.DOkij(m1, m1, C_prima);
+	mm.DOkij(m1, m1, C_prima);
 	timer3.stop();
 
         std::cout << "Timer DOkij: " << timer3.elapsed() << " ns\n";
