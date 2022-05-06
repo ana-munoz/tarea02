@@ -79,7 +79,7 @@ int main(int argc, char** argv)
 */
 
 	// Ejemplo de creación de matrix vacía
-/*	MultMatrix mm;
+	MultMatrix mm;
 	timer2.start();
 	Matrix<float> C(m1.rows(), m1.cols());
 
@@ -88,32 +88,36 @@ int main(int argc, char** argv)
 	timer2.stop();
 
         std::cout << "Timer DOijk: " << timer2.elapsed() << " ns\n";
-	std::cout << "DOIJK" << std::endl;
-	for(size_t i=0; i<C.rows(); i++){
+	//std::cout << "DOIJK" << std::endl;
+	/*for(size_t i=0; i<C.rows(); i++){
 		for(size_t j=0;j<C.cols();j++){
 			std::cout << C(i,j) << "\t";
 		}
 		std::cout << std::endl;
-	}
-	std::cout << std::endl;
-	std::cout << "DOKIJ";
-	std::cout << std::endl;
-*/
+	}*/
+	//std::cout << std::endl;
+	//std::cout << "DOKIJ";
+	//std::cout << std::endl;
+	/*for(size_t i=0; i<C.rows();i++){
+		for(size_t j=0; j<C.cols(); j++){
+			C.value(i,j,0);
+			std::cout << C(i,j) << "\t";
+		}
+		std::cout << std::endl;
+	}*/
 
-	MultMatrix mm;
 	timer3.start();
-	Matrix<float> C(m1.rows(), m1.cols()); 
 	mm.DOkij(m1, m1, C);
 	timer3.stop();
 
         std::cout << "Timer DOkij: " << timer3.elapsed() << " ns\n";
 
-	for(size_t i=0; i < C.rows(); i++){
+	/*for(size_t i=0; i < C.rows(); i++){
 		for(size_t j=0; j < C.cols(); j++){
 			std::cout << C(i,j) << "\t";
 		}
 		std::cout << std::endl;
-	}
+	}*/
 
 
 	return(EXIT_SUCCESS);
