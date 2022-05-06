@@ -102,15 +102,15 @@ int main(int argc, char** argv)
 
 	MultMatrix mm;
 	timer3.start();
-	Matrix<float> C_prima(m1.rows(), m1.cols()); 
-	mm.DOkij(m1, m1, C_prima);
+	Matrix<float> C(m1.rows(), m1.cols()); 
+	mm.DOkij(m1, m1, C);
 	timer3.stop();
 
         std::cout << "Timer DOkij: " << timer3.elapsed() << " ns\n";
 
-	for(size_t i=0; i < C_prima.rows(); i++){
-		for(size_t j=0; j < C_prima.cols(); j++){
-			std::cout << C_prima(i,j) << "\t";
+	for(size_t i=0; i < C.rows(); i++){
+		for(size_t j=0; j < C.cols(); j++){
+			std::cout << C(i,j) << "\t";
 		}
 		std::cout << std::endl;
 	}
