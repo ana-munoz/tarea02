@@ -13,7 +13,7 @@
 
 /////////////////////////////////////////////////////////////////////////////////
 //   Usage:
-//           ./matrixMult --matrix matrix_file
+//           ./mult --A matrix_file
 //
 //   Description:
 //           -->Completar la descripción
@@ -22,7 +22,7 @@
 
 void uso(std::string pname)
 {
-	std::cerr << "Uso: " << pname << " --matrix MATRIX_FILE" << std::endl;
+	std::cerr << "Uso: " << pname << " --A MATRIX_FILE" << std::endl;
 }
 
 int main(int argc, char** argv)
@@ -43,7 +43,7 @@ int main(int argc, char** argv)
 	std::string mystr;
 	for (size_t i=0; i < argc; i++) {
 		mystr=argv[i];
-		if (mystr == "--matrix") {
+		if (mystr == "--A") {
 			fileMatrixA = argv[i+1];
 		}
 	}
@@ -63,7 +63,7 @@ int main(int argc, char** argv)
 		exit(EXIT_FAILURE);
 	}
 	timer1.stop();
-	std::cout << "Time to load matrix in memory: " << timer1.elapsed() << " ns\n";
+//	std::cout << "Time to load matrix in memory: " << timer1.elapsed() << " ns\n";
 	try{
 		m2.load();
 	} catch(std::exception& e){
@@ -87,7 +87,7 @@ int main(int argc, char** argv)
 	mm.DOijk(m1, m1, C);
 	timer2.stop();
 
-        std::cout << "Timer DOijk: " << timer2.elapsed() << " ns\n";
+       // std::cout << "Timer DOijk: " << timer2.elapsed() << " ns\n";
 	//std::cout << "DOIJK" << std::endl;
 	/*for(size_t i=0; i<C.rows(); i++){
 		for(size_t j=0;j<C.cols();j++){
@@ -110,7 +110,7 @@ int main(int argc, char** argv)
 	mm.DOkij(m1, m1, C);
 	timer3.stop();
 
-        std::cout << "Timer DOkij: " << timer3.elapsed() << " ns\n";
+        //std::cout << "Timer DOkij: " << timer3.elapsed() << " ns\n";
 
 	/*for(size_t i=0; i < C.rows(); i++){
 		for(size_t j=0; j < C.cols(); j++){
@@ -119,7 +119,7 @@ int main(int argc, char** argv)
 		std::cout << std::endl;
 	}*/
 
-
+	std::cout << "rowsxcols:" << timer2.elapsed() << ":" << timer3.elapsed() << std::endl;
 	return(EXIT_SUCCESS);
 }
 
