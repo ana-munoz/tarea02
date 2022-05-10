@@ -15,11 +15,12 @@
 #//
 #/////////////////////////////////////////////////////////////////////////////////
 
-PATH=$2
-REPS=$4
+ruta=$2;
+reps=$4;
 
-for ((i=0;i<=$REPS;i++)) do
+
+for ((i=0;i<=$reps;i++)) do
 	##./matrixMult --matrix $PATH >> resultados.txt;
-	##./mult --A $PATH >> resultados.txt;
-	./mult --A $PATH | tee -a resultados.txt;
+	##./mult --A $2 | tee -a resultados.txt;
+	./mult --A $ruta | tee -a resultados.txt;
 done
