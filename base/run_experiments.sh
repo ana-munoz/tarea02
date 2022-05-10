@@ -18,9 +18,8 @@
 PATH=$2
 REPS=$4
 
-echo $PATH
-
 for ((i=0;i<=$REPS;i++)) do
 	##./matrixMult --matrix $PATH >> resultados.txt;
-	./mult --A $PATH >> resultados.txt;
+	##./mult --A $PATH >> resultados.txt;
+	./mult --A $PATH | tee -a resultados.txt;
 done
